@@ -16,4 +16,9 @@ describe("Dollar 테스트", () => {
     product = dollar.times(3);
     expect(product.amount).toBe(15);
   });
+
+  it("equality 테스트", () => {
+    expect(new Dollar(5).isEqual(new Dollar(5))).toBe(true);
+    expect(new Dollar(5).isEqual(new Dollar(6))).toBe(false);
+  });
 });
