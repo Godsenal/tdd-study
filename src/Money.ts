@@ -27,7 +27,7 @@ class Money implements Expression {
     return this.amount === money.amount && this.currency === money.currency;
   }
 
-  plus(money: Money) {
+  plus(money: Expression): Sum {
     return new Sum(this, money);
   }
 
