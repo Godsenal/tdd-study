@@ -1,9 +1,10 @@
 import Bank from "./Bank";
 import Money from "./Money";
-import Sum from "./Sum";
+import { TOperator } from "./operate";
+import Operator from "./Operator";
 
 interface Expression {
-  plus(money: Expression): Sum;
+  operate(operator: TOperator, money: Expression): Operator;
   reduce(bank: Bank, to: string): Money;
   times(mutliply: number): Expression;
 }

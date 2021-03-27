@@ -1,6 +1,7 @@
 import Bank from "../Bank";
 import Money from "../Money";
-import Sum from "../Sum";
+import Operator from "../Operator";
+import Sum from "../Operator";
 
 describe("Money 테스트", () => {
   it("multiplication 테스트", () => {
@@ -28,7 +29,7 @@ describe("Money 테스트", () => {
 
   it("addition 테스트", () => {
     const five = Money.dollar(5);
-    const sum = five.plus(five);
+    const sum = five.operate("+", five);
     const bank = new Bank();
     const reduced = bank.reduce(sum, "USD");
     expect(Money.dollar(10).isEqual(reduced));
@@ -36,7 +37,7 @@ describe("Money 테스트", () => {
 
   it("두 Money 클래스의 합은 Sum 클래스와 동일하다", () => {
     const five = Money.dollar(5);
-    const result = five.plus(five);
+    const result = five.operate("+", five);
 
     expect(five.isEqual(result.augend as Money)).toBe(true);
     expect(five.isEqual(result.addend as Money)).toBe(true);
@@ -56,7 +57,7 @@ describe("Money 테스트", () => {
     const bank = new Bank();
 
     bank.addRate("CHF", "USD", 2);
-    const result = bank.reduce(dollar.plus(franc), "USD");
+    const result = bank.reduce(dollar.operate("+", franc), "USD");
     expect(Money.dollar(10).isEqual(result)).toBe(true);
   });
 
@@ -67,7 +68,7 @@ describe("Money 테스트", () => {
 
     bank.addRate("CHF", "USD", 2);
 
-    const sum = new Sum(fiveBucks, tenFrancs).plus(fiveBucks);
+    const sum = new Operator(fiveBucks, "+", tenFrancs).operate("+", fiveBucks);
     const result = bank.reduce(sum, "USD");
     expect(Money.dollar(15).isEqual(result)).toBe(true);
   });
@@ -79,9 +80,25 @@ describe("Money 테스트", () => {
 
     bank.addRate("CHF", "USD", 2);
 
-    const sum = new Sum(fiveBucks, tenFrancs).times(2);
+    const sum = new Operator(fiveBucks, "+", tenFrancs).times(2);
     const result = bank.reduce(sum, "USD");
 
     expect(Money.dollar(20).isEqual(result)).toBe(true);
+  });
+
+  it("Operator 클래스를 통한 연산 테스트", () => {
+    const fiveBucks = Money.dollar(5);
+    const tenFrancs = Money.franc(10);
+    const bank = new Bank();
+
+    bank.addRate("CHF", "USD", 2);
+
+    const multiple = new Operator(fiveBucks, "*", tenFrancs)
+      .operate("+", fiveBucks)
+      .operate("*", fiveBucks)
+      .operate("-", fiveBucks);
+    const result = bank.reduce(multiple, "USD");
+
+    expect(Money.dollar(145).isEqual(result)).toBe(true);
   });
 });

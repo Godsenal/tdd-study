@@ -1,6 +1,7 @@
 import Bank from "./Bank";
 import Expression from "./Expression";
-import Sum from "./Sum";
+import { TOperator } from "./operate";
+import Sum from "./Operator";
 
 class Money implements Expression {
   protected amount = 0;
@@ -27,8 +28,8 @@ class Money implements Expression {
     return this.amount === money.amount && this.currency === money.currency;
   }
 
-  plus(money: Expression): Sum {
-    return new Sum(this, money);
+  operate(operator: TOperator, money: Expression): Sum {
+    return new Sum(this, operator, money);
   }
 
   reduce(bank: Bank, to: string) {

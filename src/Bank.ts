@@ -1,8 +1,6 @@
 import Expression from "./Expression";
-import Money from "./Money";
 import Pair from "./Pair";
 import PairMap from "./PairMap";
-import Sum from "./Sum";
 
 class Bank {
   rates: PairMap = new PairMap();
