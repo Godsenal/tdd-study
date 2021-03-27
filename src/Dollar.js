@@ -3,7 +3,7 @@ class Dollar {
     this.amount = amount;
   }
   times(multiply) {
-    this.amount = this.amount * multiply;
+    return new Dollar(this.amount * multiply);
   }
 }
 
