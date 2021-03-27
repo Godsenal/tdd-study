@@ -1,9 +1,9 @@
-import Expression from "./Expression";
 import Money from "./Money";
+import Sum from "./Sum";
 
 class Bank {
-  reduce(source: Expression, to: string) {
-    return Money.dollar(5);
+  reduce(source: Sum, to: string) {
+    return source.reduce(to);
   }
 }
 

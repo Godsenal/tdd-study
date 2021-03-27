@@ -30,6 +30,10 @@ class Money implements Expression {
     return new Sum(this, money);
   }
 
+  reduce(to: string) {
+    return this;
+  }
+
   getCurrency() {
     return this.currency;
   }
