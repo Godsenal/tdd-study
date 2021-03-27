@@ -16,8 +16,6 @@ describe("Money 테스트", () => {
   it("equality 테스트", () => {
     expect(Money.dollar(5).isEqual(Money.dollar(5))).toBe(true);
     expect(Money.dollar(5).isEqual(Money.dollar(6))).toBe(false);
-    expect(Money.franc(5).isEqual(Money.franc(5))).toBe(true);
-    expect(Money.franc(5).isEqual(Money.franc(6))).toBe(false);
     expect(Money.franc(5).isEqual(Money.dollar(5))).toBe(false);
   });
 
