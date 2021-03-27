@@ -7,7 +7,7 @@ import Sum from "./Sum";
 class Bank {
   rates: PairMap = new PairMap();
   rate(from: string, to: string) {
-    return this.rates.get(new Pair(from, to));
+    return from === to ? 1 : this.rates.get(new Pair(from, to));
   }
   addRate(from: string, to: string, rate: number) {
     this.rates.set(new Pair(from, to), rate);
