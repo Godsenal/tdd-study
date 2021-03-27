@@ -1,3 +1,4 @@
+import Bank from "../Bank";
 import Money from "../Money";
 
 describe("Money 테스트", () => {
@@ -22,5 +23,13 @@ describe("Money 테스트", () => {
   it("currency 테스트", () => {
     expect(Money.dollar(1).getCurrency()).toBe("USD");
     expect(Money.franc(1).getCurrency()).toBe("CHF");
+  });
+
+  it("addition 테스트", () => {
+    const five = Money.dollar(5);
+    const sum = five.plus(five);
+    const bank = new Bank();
+    const reduced = bank.reduce(sum, "USD");
+    expect(Money.dollar(10).isEqual(reduced));
   });
 });

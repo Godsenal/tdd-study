@@ -1,4 +1,6 @@
-class Money {
+import Expression from "./Expression";
+
+class Money implements Expression {
   protected amount = 0;
   protected currency = "";
 
@@ -21,6 +23,10 @@ class Money {
 
   isEqual(money: Money) {
     return this.amount === money.amount && this.currency === money.currency;
+  }
+
+  plus(money: Money) {
+    return new Money(this.amount + money.amount, this.currency);
   }
 
   getCurrency() {
