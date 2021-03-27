@@ -19,5 +19,6 @@ describe("Money 테스트", () => {
     expect(new Dollar(5).isEqual(new Dollar(6))).toBe(false);
     expect(new Franc(5).isEqual(new Franc(5))).toBe(true);
     expect(new Franc(5).isEqual(new Franc(6))).toBe(false);
+    expect(new Franc(5).isEqual(new Dollar(5))).toBe(false);
   });
 });
