@@ -1,11 +1,12 @@
 import Money from "./Money";
+import MoneyFactory from "./MoneyFactory";
 
 class Franc extends Money {
-  constructor(amount: number) {
-    super(amount);
+  constructor(amount: number, currency: string) {
+    super(amount, currency);
   }
   times(multiply: number) {
-    return new Franc(this.amount * multiply);
+    return MoneyFactory.franc(this.amount * multiply);
   }
 }
 

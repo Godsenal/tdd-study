@@ -20,4 +20,9 @@ describe("MoneyFactory 테스트", () => {
     expect(MoneyFactory.franc(5).isEqual(MoneyFactory.franc(6))).toBe(false);
     expect(MoneyFactory.franc(5).isEqual(MoneyFactory.dollar(5))).toBe(false);
   });
+
+  it("currency 테스트", () => {
+    expect(MoneyFactory.dollar(1).getCurrency()).toBe("USD");
+    expect(MoneyFactory.franc(1).getCurrency()).toBe("CHF");
+  });
 });
