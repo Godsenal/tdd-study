@@ -1,4 +1,4 @@
-const Dollar = require("../Dollar");
+import Dollar from "../Dollar";
 
 describe("Dollar 테스트", () => {
   it("multiplication 테스트", () => {
