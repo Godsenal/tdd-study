@@ -36,6 +36,10 @@ class Money implements Expression {
     return new Money(this.amount / rate, to);
   }
 
+  getAmount() {
+    return this.amount;
+  }
+
   getCurrency() {
     return this.currency;
   }
