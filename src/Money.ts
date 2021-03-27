@@ -1,5 +1,3 @@
-import Dollar from "./Dollar";
-
 abstract class Money {
   protected amount = 0;
 
