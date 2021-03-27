@@ -1,4 +1,4 @@
-abstract class Money {
+class Money {
   protected amount = 0;
   protected currency = "";
 
@@ -7,13 +7,12 @@ abstract class Money {
     this.currency = currency;
   }
 
-  abstract times(multiply: number): Money;
+  times(multiply: number) {
+    return new Money(this.amount * multiply, this.currency);
+  }
 
   isEqual(money: Money) {
-    return (
-      this.amount === money.amount &&
-      this.constructor.name === money.constructor.name
-    );
+    return this.amount === money.amount && this.currency === money.currency;
   }
 
   getCurrency() {
