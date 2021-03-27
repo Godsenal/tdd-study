@@ -40,4 +40,12 @@ describe("Money 테스트", () => {
     expect(five.isEqual(result.augend)).toBe(true);
     expect(five.isEqual(result.addend)).toBe(true);
   });
+
+  it("다른 통화간의 reduce 테스트", () => {
+    const bank = new Bank();
+    bank.addRate("CHF", "USD", 2);
+
+    const result = bank.reduce(Money.franc(2), "USD");
+    expect(result.isEqual(Money.dollar(1))).toBe(true);
+  });
 });
