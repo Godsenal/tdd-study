@@ -1,4 +1,5 @@
 import Expression from "./Expression";
+import Sum from "./Sum";
 
 class Money implements Expression {
   protected amount = 0;
@@ -26,7 +27,7 @@ class Money implements Expression {
   }
 
   plus(money: Money) {
-    return new Money(this.amount + money.amount, this.currency);
+    return new Sum(this, money);
   }
 
   getCurrency() {

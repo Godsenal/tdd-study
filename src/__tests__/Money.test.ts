@@ -32,4 +32,12 @@ describe("Money 테스트", () => {
     const reduced = bank.reduce(sum, "USD");
     expect(Money.dollar(10).isEqual(reduced));
   });
+
+  it("두 Money 클래스의 합은 Sum 클래스와 동일하다", () => {
+    const five = Money.dollar(5);
+    const result = five.plus(five);
+
+    expect(five.isEqual(result.augend)).toBe(true);
+    expect(five.isEqual(result.addend)).toBe(true);
+  });
 });
