@@ -48,4 +48,14 @@ describe("Money 테스트", () => {
     const result = bank.reduce(Money.franc(2), "USD");
     expect(result.isEqual(Money.dollar(1))).toBe(true);
   });
+
+  it("다른 통화간의 addition 테스트", () => {
+    const dollar = Money.dollar(5);
+    const franc = Money.franc(10);
+    const bank = new Bank();
+
+    bank.addRate("CHF", "USD", 2);
+    const result = bank.reduce(dollar.plus(franc), "USD");
+    expect(Money.dollar(10).isEqual(result)).toBe(true);
+  });
 });
