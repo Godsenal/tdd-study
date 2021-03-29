@@ -16,6 +16,7 @@ describe("Money 테스트", () => {
     expect(Money.franc(15).isEqual(franc.times(3))).toBe(true);
   });
 
+  // 다른 테스트에 영향을 줄 수 있는 위험한 요소
   it("equality 테스트", () => {
     expect(Money.dollar(5).isEqual(Money.dollar(5))).toBe(true);
     expect(Money.dollar(5).isEqual(Money.dollar(6))).toBe(false);
