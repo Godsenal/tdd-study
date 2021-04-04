@@ -9,6 +9,12 @@ class TestCaseTest extends TestCase {
 
     assert("1 run, 0 failed" === result.summary());
   }
+  testFailedResult() {
+    const test = new WasRun("testBrokenMethod");
+    const result = test.run();
+
+    assert("1 run, 1 failed" === result.summary());
+  }
   testTemplatedMethod() {
     const test = new WasRun("testMethod");
     test.run();
@@ -18,3 +24,4 @@ class TestCaseTest extends TestCase {
 
 new TestCaseTest("testTemplatedMethod").run();
 new TestCaseTest("testResult").run();
+new TestCaseTest("testFailedResult").run();
