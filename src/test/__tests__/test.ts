@@ -3,19 +3,11 @@ import TestCase from "../TestCase";
 import WasRun from "../WasRun";
 
 class TestCaseTest extends TestCase {
-  setUp() {
-    this.test = new WasRun("testMethod");
-  }
-  testRunning() {
-    this.test.run();
-    assert(this.test.wasRun);
-    assert("setUp testMethod" === this.test.log);
-  }
-  testSetUp() {
-    this.test.run();
-    assert(this.test.wasSetUp);
+  testTemplatedMethod() {
+    const test = new WasRun("testMethod");
+    test.run();
+    assert("setUp testMethod" === test.log);
   }
 }
 
-new TestCaseTest("testRunning").run();
-new TestCaseTest("testSetUp").run();
+new TestCaseTest("testTemplatedMethod").run();
