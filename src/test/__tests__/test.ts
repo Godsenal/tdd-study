@@ -3,6 +3,7 @@ import TestCase from "../TestCase";
 import TestResult from "../TestResult";
 import TestSuite from "../TestSuite";
 import WasRun from "../WasRun";
+import FailedSetUp from "../FailedSetUp";
 
 class TestCaseTest extends TestCase {
   setUp() {
@@ -37,6 +38,12 @@ class TestCaseTest extends TestCase {
 
     assert("setUp tearDown " === test.log);
   }
+  testFailedSetUp() {
+    const test = new FailedSetUp("failed setUp");
+    test.run(this.result);
+
+    assert("1 run, 1 failed" === this.result.summary());
+  }
   testSuite() {
     const suite = new TestSuite();
     suite.add(new WasRun("testMethod"));
@@ -54,6 +61,7 @@ suite.add(new TestCaseTest("testResult"));
 suite.add(new TestCaseTest("testFailedResultFormatting"));
 suite.add(new TestCaseTest("testFailedResult"));
 suite.add(new TestCaseTest("testFailedTearDown"));
+suite.add(new TestCaseTest("testFailedSetUp"));
 suite.add(new TestCaseTest("testSuite"));
 
 const result = new TestResult();
