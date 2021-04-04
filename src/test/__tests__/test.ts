@@ -1,12 +1,13 @@
+import assert from "assert";
 import TestCase from "../TestCase";
 import WasRun from "../WasRun";
 
 class TestCaseTest extends TestCase {
   testRunning() {
     const test = new WasRun("testMethod");
-    console.log(test.wasRun);
+    assert(!test.wasRun);
     test.run();
-    console.log(test.wasRun);
+    assert(test.wasRun);
   }
 }
 
