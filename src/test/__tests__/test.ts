@@ -1,6 +1,7 @@
 import assert from "assert";
 import TestCase from "../TestCase";
 import TestResult from "../TestResult";
+import TestSuite from "../TestSuite";
 import WasRun from "../WasRun";
 
 class TestCaseTest extends TestCase {
