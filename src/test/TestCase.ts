@@ -1,6 +1,7 @@
+import Test from "./Test";
 import TestResult from "./TestResult";
 
-class TestCase {
+class TestCase implements Test {
   [key: string]: any;
   name: string = "";
 

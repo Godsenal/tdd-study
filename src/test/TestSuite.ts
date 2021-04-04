@@ -1,12 +1,13 @@
+import Test from "./Test";
 import TestCase from "./TestCase";
 import TestResult from "./TestResult";
 
-class TestSuite {
-  tests: (TestCase | TestSuite)[];
+class TestSuite implements Test {
+  tests: Test[];
   constructor() {
     this.tests = [];
   }
-  add(test: TestCase | TestSuite) {
+  add(test: Test) {
     this.tests.push(test);
   }
   run(result: TestResult) {
