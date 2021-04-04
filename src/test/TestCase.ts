@@ -13,11 +13,13 @@ class TestCase {
   tearDown() {}
 
   run() {
+    const result = new TestResult();
+    result.testStarted();
     this.setUp();
     this[this.name]?.();
     this.tearDown();
 
-    return new TestResult();
+    return result;
   }
 }
 
