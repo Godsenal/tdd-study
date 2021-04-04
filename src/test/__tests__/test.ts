@@ -31,6 +31,12 @@ class TestCaseTest extends TestCase {
 
     assert("1 run, 1 failed" === this.result.summary());
   }
+  testFailedTearDown() {
+    const test = new WasRun("testBrokenMethod");
+    test.run(this.result);
+
+    assert("setUp tearDown " === test.log);
+  }
   testSuite() {
     const suite = new TestSuite();
     suite.add(new WasRun("testMethod"));
@@ -47,6 +53,7 @@ suite.add(new TestCaseTest("testTemplatedMethod"));
 suite.add(new TestCaseTest("testResult"));
 suite.add(new TestCaseTest("testFailedResultFormatting"));
 suite.add(new TestCaseTest("testFailedResult"));
+suite.add(new TestCaseTest("testFailedTearDown"));
 suite.add(new TestCaseTest("testSuite"));
 
 const result = new TestResult();
