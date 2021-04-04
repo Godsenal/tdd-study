@@ -5,42 +5,39 @@ import TestSuite from "../TestSuite";
 import WasRun from "../WasRun";
 
 class TestCaseTest extends TestCase {
+  setUp() {
+    this.result = new TestResult();
+  }
   testResult() {
     const test = new WasRun("testMethod");
-    const result = new TestResult();
-    test.run(result);
+    test.run(this.result);
 
-    assert("1 run, 0 failed" === result.summary());
+    assert("1 run, 0 failed" === this.result.summary());
   }
   testFailedResult() {
     const test = new WasRun("testBrokenMethod");
-    const result = new TestResult();
-    test.run(result);
+    test.run(this.result);
 
-    assert("1 run, 1 failed" === result.summary());
+    assert("1 run, 1 failed" === this.result.summary());
   }
   testTemplatedMethod() {
     const test = new WasRun("testMethod");
-    const result = new TestResult();
-    test.run(result);
+    test.run(this.result);
     assert("setUp testMethod tearDown " === test.log);
   }
   testFailedResultFormatting() {
-    const result = new TestResult();
+    this.result.testStarted();
+    this.result.testFailed();
 
-    result.testStarted();
-    result.testFailed();
-
-    assert("1 run, 1 failed" === result.summary());
+    assert("1 run, 1 failed" === this.result.summary());
   }
   testSuite() {
     const suite = new TestSuite();
     suite.add(new WasRun("testMethod"));
     suite.add(new WasRun("testBrokenMethod"));
 
-    const result = new TestResult();
-    suite.run(result);
-    assert("2 run, 1 failed" === result.summary());
+    suite.run(this.result);
+    assert("2 run, 1 failed" === this.result.summary());
   }
 }
 
