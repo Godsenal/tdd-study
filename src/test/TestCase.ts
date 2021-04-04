@@ -14,8 +14,8 @@ class TestCase {
 
   run(result: TestResult) {
     result.testStarted();
-    this.setUp();
     try {
+      this.setUp();
       this[this.name]?.();
     } catch (e) {
       result.testFailed();
