@@ -1,3 +1,5 @@
+import TestResult from "./TestResult";
+
 class TestCase {
   [key: string]: any;
   name: string = "";
@@ -14,6 +16,8 @@ class TestCase {
     this.setUp();
     this[this.name]?.();
     this.tearDown();
+
+    return new TestResult();
   }
 }
 
