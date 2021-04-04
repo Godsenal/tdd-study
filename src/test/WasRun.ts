@@ -19,7 +19,11 @@ class WasRun extends TestCase {
 
   testMethod() {
     this.wasRun = 1;
-    this.log = this.log + "testMethod";
+    this.log = this.log + "testMethod ";
+  }
+
+  tearDown() {
+    this.log = this.log + "tearDown ";
   }
 }
 

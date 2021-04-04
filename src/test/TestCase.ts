@@ -8,9 +8,12 @@ class TestCase {
 
   setUp() {}
 
+  tearDown() {}
+
   run() {
     this.setUp();
     this[this.name]?.();
+    this.tearDown();
   }
 }
 
