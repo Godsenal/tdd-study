@@ -2,11 +2,11 @@ import TestCase from "./TestCase";
 import TestResult from "./TestResult";
 
 class TestSuite {
-  tests: TestCase[];
+  tests: (TestCase | TestSuite)[];
   constructor() {
     this.tests = [];
   }
-  add(test: TestCase) {
+  add(test: TestCase | TestSuite) {
     this.tests.push(test);
   }
   run(result: TestResult) {
