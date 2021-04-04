@@ -52,6 +52,22 @@ class TestCaseTest extends TestCase {
     suite.run(this.result);
     assert("2 run, 1 failed" === this.result.summary());
   }
+  testSuiteSuite() {
+    const suite = new TestSuite();
+    const successSuite = new TestSuite();
+    const failSuite = new TestSuite();
+
+    successSuite.add(new WasRun("testMethod"));
+    successSuite.add(new WasRun("testMethod"));
+    failSuite.add(new WasRun("testBrokenMethod"));
+
+    suite.add(successSuite);
+    suite.add(failSuite);
+
+    suite.run(this.result);
+
+    assert("3 run, 1 failed" === this.result.summary());
+  }
 }
 
 const suite = new TestSuite();
@@ -63,6 +79,7 @@ suite.add(new TestCaseTest("testFailedResult"));
 suite.add(new TestCaseTest("testFailedTearDown"));
 suite.add(new TestCaseTest("testFailedSetUp"));
 suite.add(new TestCaseTest("testSuite"));
+suite.add(new TestCaseTest("testSuiteSuite"));
 
 const result = new TestResult();
 suite.run(result);
