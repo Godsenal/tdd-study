@@ -1,15 +1,11 @@
-class WasRun {
-  [key: string]: any;
-  name: string = "";
+import TestCase from "./TestCase";
+
+class WasRun extends TestCase {
   wasRun: number | null;
 
   constructor(name: string) {
-    this.name = name;
+    super(name);
     this.wasRun = null;
-  }
-
-  run() {
-    this[this.name]?.();
   }
 
   testMethod() {
