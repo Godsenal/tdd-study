@@ -9,6 +9,7 @@ class TestCaseTest extends TestCase {
   testRunning() {
     this.test.run();
     assert(this.test.wasRun);
+    assert("setUp testMethod" === this.test.log);
   }
   testSetUp() {
     this.test.run();
