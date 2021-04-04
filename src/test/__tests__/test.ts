@@ -7,19 +7,22 @@ import WasRun from "../WasRun";
 class TestCaseTest extends TestCase {
   testResult() {
     const test = new WasRun("testMethod");
-    const result = test.run();
+    const result = new TestResult();
+    test.run(result);
 
     assert("1 run, 0 failed" === result.summary());
   }
   testFailedResult() {
     const test = new WasRun("testBrokenMethod");
-    const result = test.run();
+    const result = new TestResult();
+    test.run(result);
 
     assert("1 run, 1 failed" === result.summary());
   }
   testTemplatedMethod() {
     const test = new WasRun("testMethod");
-    test.run();
+    const result = new TestResult();
+    test.run(result);
     assert("setUp testMethod tearDown " === test.log);
   }
   testFailedResultFormatting() {
@@ -35,7 +38,8 @@ class TestCaseTest extends TestCase {
     suite.add(new WasRun("testMethod"));
     suite.add(new WasRun("testBrokenMethod"));
 
-    const result = suite.run();
+    const result = new TestResult();
+    suite.run(result);
     assert("2 run, 1 failed" === result.summary());
   }
 }

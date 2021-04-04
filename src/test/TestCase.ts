@@ -12,8 +12,7 @@ class TestCase {
 
   tearDown() {}
 
-  run() {
-    const result = new TestResult();
+  run(result: TestResult) {
     result.testStarted();
     this.setUp();
     try {
@@ -22,8 +21,6 @@ class TestCase {
       result.testFailed();
     }
     this.tearDown();
-
-    return result;
   }
 }
 

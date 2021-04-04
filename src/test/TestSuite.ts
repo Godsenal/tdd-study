@@ -9,12 +9,8 @@ class TestSuite {
   add(test: TestCase) {
     this.tests.push(test);
   }
-  run() {
-    const result = new TestResult();
-
+  run(result: TestResult) {
     this.tests.forEach((test) => test.run(result));
-
-    return result;
   }
 }
 
