@@ -6,7 +6,7 @@ class TestCaseTest extends TestCase {
   testTemplatedMethod() {
     const test = new WasRun("testMethod");
     test.run();
-    assert("setUp testMethod" === test.log);
+    assert("setUp testMethod tearDown " === test.log);
   }
 }
 
