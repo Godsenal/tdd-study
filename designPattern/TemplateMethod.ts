@@ -68,12 +68,15 @@ export class InfViewer extends Viewer {
     // inf event
   }
   removeEvent() {
+    console.log("inf viewer remove event");
     // inf event
   }
   setComponent() {
+    console.log("inf viewer set component");
     // init inf component
   }
   removeComponent() {
+    console.log("inf viewer remove component");
     // remove inf component
   }
 }
@@ -87,12 +90,15 @@ export class ArticleViewer extends Viewer {
     // article event
   }
   removeEvent() {
+    console.log("article viewer remove event");
     // article event
   }
   setComponent() {
+    console.log("article viewer set component");
     // init article component
   }
   removeComponent() {
+    console.log("article viewer remove component");
     // remove article component
   }
 }
