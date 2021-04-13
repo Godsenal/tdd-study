@@ -33,7 +33,7 @@ class OtherTest extends TestCase {
 }
 
 // # 2
-class Viewer {
+export class Viewer {
   constructor() {}
   addEvent() {
     // common event
@@ -59,11 +59,12 @@ class Viewer {
   }
 }
 
-class InfViewer extends Viewer {
+export class InfViewer extends Viewer {
   constructor() {
     super();
   }
   addEvent() {
+    console.log("inf viewer add event");
     // inf event
   }
   removeEvent() {
@@ -77,11 +78,12 @@ class InfViewer extends Viewer {
   }
 }
 
-class ArticleViewer extends Viewer {
+export class ArticleViewer extends Viewer {
   constructor() {
     super();
   }
   addEvent() {
+    console.log("article viewer add event");
     // article event
   }
   removeEvent() {

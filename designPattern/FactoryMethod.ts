@@ -20,6 +20,8 @@ class Money {
 }
 
 // # 2
+
+import { Viewer, InfViewer, ArticleViewer } from "./TemplateMethod";
 class Parser {
   constructor(viewer: Viewer) {}
   render() {}

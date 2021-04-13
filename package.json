@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --watchAll",
     "tsc": "tsc",
-    "custom-test": "nodemon --watch src/ --ext ts --exec \"ts-node src/test/__tests__/test.ts\""
+    "custom-test": "nodemon --watch src/ --ext ts --exec \"ts-node src/test/__tests__/test.ts\"",
+    "ts-node": "ts-node"
   },
   "repository": {
     "type": "git",
